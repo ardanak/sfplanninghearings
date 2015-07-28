@@ -3,8 +3,8 @@ Initializes elastic database with data from www.civicdata.com and www.sf-plannin
 Script must be run once on the host server using the command: python app_init.py
 """
 from elasticsearch_dsl import connections
-from sfip.importers.sfcivicdata import SFCivicDataImporter
-from sfip.importers.sfplanning import SFPlanningNoticeImporter
+from importers.sfcivicdata import SFCivicDataImporter
+from importers.sfplanning import SFPlanningNoticeImporter
 from models import indices
 
 connections.connections.create_connection(hosts=['localhost'], timeout=200)

@@ -1,7 +1,7 @@
 from datetime import datetime, date
 import dateutil.parser
-from sfip.models import Importer
-from sfip.resources import *
+from models import Importer
+from resources import *
 
 class DataImporter(object):
     """ DataImporter base class """

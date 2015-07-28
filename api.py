@@ -16,5 +16,6 @@ if __name__ == '__main__':
 
     map(lambda index: index.create(ignore=400), indices.values())
 
-    api.debug = True
+    api.debug = False
+    # Add hosts='x.x.x.x' inside run() to use your production server's ip address
     api.run()
