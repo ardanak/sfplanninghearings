@@ -29,31 +29,16 @@ class SFPlanningNoticeImporter(DataImporter):
 
     @staticmethod
     def convert_month(string):
-        string = string.strip()
-        if string == 'January':
-            return '01'
-        elif string == 'February':
-            return '02'
-        elif string == 'March':
-            return '03'
-        elif string == 'April':
-            return '04'
-        elif string == 'May':
-            return '05'
-        elif string == 'June':
-            return '06'
-        elif string == 'July':
-            return '07'
-        elif string == 'August':
-            return '08'
-        elif string == 'September':
-            return '09'
-        elif string == 'October':
-            return '10'
-        elif string == 'November':
-            return '11'
-        elif string == 'December':
-            return '12'
+        months = ["January","February","March","April", \
+        "May","June","July","August", \
+        "September","October","November","December"]
+    
+        for i, month in enumerate(months):
+            if month == string.strip():
+                if i<10:
+                    return "0" + str(i+1)
+                else:
+                    return str(i+1)
 
     def fetch(self,last_updated=datetime(1900, 1, 1)):
         """ Parses notice of hearing data (hearing type:sf_noh) from the Online Notice of Hearings page """
