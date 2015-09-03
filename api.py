@@ -14,5 +14,5 @@ if __name__ == '__main__':
     connections.connections.create_connection(hosts=['localhost'], timeout=200)
 
     api.debug = False
-    # Add hosts='x.x.x.x' inside run() to use your production server's ip address
+    # Add host='x.x.x.x' inside run() to use your production server's ip address
     api.run()
