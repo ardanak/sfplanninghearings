@@ -6,10 +6,8 @@ SF planning website updates its notice of hearings data every friday.
 from elasticsearch_dsl import connections
 from importers.sfcivicdata import SFCivicDataImporter
 from importers.sfplanning import SFPlanningNoticeImporter
-from models import indices
 
 connections.connections.create_connection(hosts=['localhost'], timeout=200)
-map(lambda index: index.create(ignore=400), indices.values())
 
 cdi = SFCivicDataImporter()
 cdi.run(True)

@@ -29,8 +29,8 @@ class DataImporter(object):
                     elif model.last_updated < dateutil.parser.parse(doc['last_updated']):
                         model.update(**doc)
                 elif doc_type == 'notice':
-                    if doc['date_published'] > doc['last_updated'] or (initialized == False):
-                        case_id = str(doc['case_num'].strip()+doc['case_code'].strip())
+                    if dateutil.parser.parse(doc['date_published']) > importer_model.last_updated or (initialized == False):
+                        case_id = doc['case_num']+doc['case_code']
                         existing_case = Case.get(id=case_id, ignore=404)
                         if existing_case is None:
                             case_doc = {
